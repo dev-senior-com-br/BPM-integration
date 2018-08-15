@@ -1,0 +1,365 @@
+[
+    {"wf_endereco_paises": {
+		"colums":[
+			{"type":"int","columname":"codpai"},
+			{"type":"string","columname":"nompai"}],
+		"tables":[{"tablename":"r074pai"}]		
+		}		
+    },
+    {"wf_endereco_cidades_do_estado": {
+		"colums":[
+			{"type":"int","columname":"codcid"},
+			{"type":"string","columname":"nomcid"}],
+		"tables":[{"tablename":"R074Cid"}],		
+		"where":[
+			{"columtype":"string","columname":"estcid", "columvalue": ":estcid"}
+		],
+		"order":[{"order":"nomcid"}]
+		}		
+    },
+    {"wf_endereco_bairros_da_cidade": {
+		"colums":[
+			{"type":"int","columname":"codbai"},
+			{"type":"string","columname":"nombai"}],
+		"tables":[{"tablename":"R074Bai"}],		
+		"where":[
+			{"columtype":"int","columname":"codcid", "columvalue": ":codcid"}
+		],
+		"order":[{"order":"nombai"}]
+		}		
+	},
+	{"wf_lista_grau_instrucao": {
+		"colums":[
+			{"type":"int","columname":"grains"},
+			{"type":"string","columname":"desgra"}],
+		"tables":[{"tablename":"R022GRA"}],
+		"order":[{"order":"grains"}]		
+		}		
+    },
+    {"wf_lista_conhecimentos": {
+		"colums":[
+			{"type":"int","columname":"codcnc"},
+			{"type":"string","columname":"descnc"}],
+		"tables":[{"tablename":"R125CNC"}],
+		"order":[{"order":"descnc"}]		
+		}		
+    },
+    {"wf_lista_formacao": {
+		"colums":[
+			{"type":"int","columname":"codcuf"},
+			{"type":"string","columname":"nomcuf"}],
+		"tables":[{"tablename":"R127CUF"}],
+		"order":[{"order":"nomcuf"}]		
+		}		
+    },
+    {"wf_lista_aperfeicoamento": {
+		"colums":[
+			{"type":"int","columname":"codcua"},
+			{"type":"string","columname":"nomcua"}],
+		"tables":[{"tablename":"R128CUA"}],
+		"order":[{"order":"nomcua"}]		
+		}		
+    },
+    {"wf_lista_entidades_ensino_tipuso3": {
+        "colums":[
+            {"type":"int","columname":"r032oem.codoem"},
+            {"type":"string","columname":"nomoem"}],
+        "tables":[{"tablename":"R032OEM"},{"tablename":"R032USO"}],
+        "join":[{"colum1":"R032OEM.codoem", "colum2":"R032USO.codoem"}],
+        "where":[{"columtype":"int", "columname":"R032USO.tipuso", "columvalue": "3"}],
+        "order":[{"order":"nomoem"}]        
+        }       
+    },
+    {"wf_lista_bancos": {
+        "colums":[
+            {"type":"int","columname":"codban"},
+            {"type":"string","columname":"nomban"}],
+        "tables":[{"tablename":"R012BAN"}],        
+        "order":[{"order":"nomban"}]        
+        }       
+    },
+    {"wf_lista_agencias_por_banco": {
+        "colums":[
+            {"type":"int","columname":"codage"},
+            {"type":"string","columname":"nomage"}],
+        "tables":[{"tablename":"R012AGE"}],
+        "where":[{"columtype":"int", "columname":"codban", "columvalue": ":codban"}],
+        "order":[{"order":"nomage"}]        
+        }       
+    },
+    {"wf_lista_graus_instrucao": {
+        "colums":[
+            {"type":"int","columname":"grains"},
+            {"type":"string","columname":"desgra"}],
+        "tables":[{"tablename":"R022GRA"}],        
+        "order":[{"order":"grains"}]        
+        }       
+    },
+    {"wf_lista_cursos_formacao_por_nivel": {
+        "colums":[
+            {"type":"int","columname":"codcuf"},
+            {"type":"string","columname":"nomred"},
+            {"type":"string","columname":"nomcuf"}],
+        "tables":[{"tablename":"R127CUF"}],
+        "where":[{"columtype":"int", "columname":"nivcuf", "columvalue": ":nivcuf"}],
+        "order":[{"order":"nomred"}]        
+        }       
+    },
+	{"consult_colab_nome_endereco": {
+		"colums":[{"type":"int","columname":"r034fun.numemp"},{"type":"int","columname":"r034fun.numcad"},{"type":"string","columname":"r034fun.nomfun"},{"type":"string","columname":"r034cpl.endrua"},{"type":"string","columname":"r034cpl.endnum"}],
+		"tables":[{"tablename":"r034fun"},{"tablename":"r034cpl"}],
+		"join":[{"colum1":"r034fun.numemp", "colum2":"r034cpl.numemp"},{"colum1":"r034fun.tipcol", "colum2":"r034cpl.tipcol"},{"colum1":"r034fun.numcad", "colum2":"r034cpl.numcad"}],
+		"where":[{"columtype":"int","columname":"r034fun.numemp", "columvalue": 1},{"columtype":"int","columname":"r034fun.tipcol", "columvalue": 1}],
+		"order":[{"order":"r034fun.nomfun"}]
+	  }
+	},
+	{"colaborador_simples_com_nome_email": {
+		"colums":[{"type":"int","columname":"r034fun.numemp"},{"type":"int","columname":"r034fun.tipcol"},{"type":"int","columname":"r034fun.numcad"},{"type":"string","columname":"nomfun"},{"type":"string","columname":"r034cpl.emacom"}],
+		"tables":[{"tablename":"r034fun"},{"tablename":"r034cpl"}],
+		"join":[{"colum1":"r034fun.numemp", "colum2":"r034cpl.numemp"},{"colum1":"r034fun.tipcol", "colum2":"r034cpl.tipcol"},{"colum1":"r034fun.numcad", "colum2":"r034cpl.numcad"}],
+		"where":[{"columtype":"int","columname":"r034fun.numemp", "columvalue": 1},{"columtype":"int","columname":"r034fun.tipcol", "columvalue": 1}],
+		"order":[{"order":"r034fun.nomfun"}]
+	  }
+	},
+	{"colaborador_simples_com_nome_email_valsal_datadm": {
+		"colums":[{"type":"int","columname":"r034fun.numemp"},
+				{"type":"int","columname":"r034fun.tipcol"},
+				{"type":"int","columname":"r034fun.numcad"},
+				{"type":"string","columname":"nomfun"},
+				{"type":"string","columname":"r034cpl.emacom"},
+				{"type":"float","columname":"r034fun.valsal"},
+				{"type":"date","columname":"r034fun.datadm"}],
+		"tables":[{"tablename":"r034fun"},{"tablename":"r034cpl"}],
+		"join":[{"colum1":"r034fun.numemp", "colum2":"r034cpl.numemp"},{"colum1":"r034fun.tipcol", "colum2":"r034cpl.tipcol"},{"colum1":"r034fun.numcad", "colum2":"r034cpl.numcad"}],
+		"where":[{"columtype":"int","columname":"r034fun.numemp", "columvalue": 1},
+			{"columtype":"int","columname":"r034fun.tipcol", "columvalue": 1},
+			{"columtype":"date","columname":"r034fun.datadm", "columvalue": "01/01/1999"}],
+		"order":[{"order":"r034fun.nomfun"}]
+	  }
+	},
+	{"consult_declaracao_saude": {
+		"colums":[{"type":"int","columname":"usu_codque"},{"type":"string","columname":"usu_quedes"}],
+		"tables":[{"tablename":"usu_tdecsauque"}],
+		"join":[],
+		"where":[],
+		"order":[{"order":"usu_codque"}]
+		}		
+	},
+	{"wf_info_solicitante": {
+		"colums":[
+			{"type":"int","columname":"R034FUN.NumEmp"},
+			{"type":"int","columname":"R034FUN.TipCol"},
+			{"type":"int","columname":"R034FUN.NumCad"},
+			{"type":"string","columname":"R034FUN.NomFun"},
+			{"type":"string","columname":"R034FUN.NumCpf"},
+			{"type":"string","columname":"R034FUN.EstCiv"},
+			{"type":"string","columname":"R034FUN.TipSex"},
+			{"type":"string","columname":"R034CPL.NumCnh"},
+			{"type":"string","columname":"R034CPL.CatCnh"},
+			{"type":"string","columname":"R034CPL.DatCnh"},
+			{"type":"string","columname":"R034CPL.VenCnh"},
+			{"type":"string","columname":"R034CPL.OrgCnh"},
+			{"type":"string","columname":"R034CPL.EstCnh"},
+			{"type":"string","columname":"R034CPL.NumCid"},
+			{"type":"string","columname":"R034CPL.EmiCid"},
+			{"type":"string","columname":"R034CPL.EstCid"},
+			{"type":"string","columname":"R034CPL.DexCid"},
+			{"type":"string","columname":"R034CPL.EndCep"},
+			{"type":"string","columname":"R034CPL.CodCid"},
+			{"type":"string","columname":"R034CPL.CodBai"},
+			{"type":"string","columname":"R034CPL.EndRua"},
+			{"type":"string","columname":"R034CPL.EndNum"},
+			{"type":"string","columname":"R034CPL.DddTel"},
+			{"type":"string","columname":"R034CPL.NumTel"},
+			{"type":"string","columname":"R034CPL.NmDdd2"},
+			{"type":"string","columname":"R034CPL.NmTel2"},
+			{"type":"string","columname":"R034CPL.EmaPar"},
+			{"type":"string","columname":"R024CAR.TitRed"},
+			{"type":"string","columname":"R018CCU.NomCcu"},
+			{"type":"string","columname":"R016ORN.NomLoc"},
+			{"type":"string","columname":"R010SIT.DesSit"}],
+		"tables":[{"tablename":"R034FUN"},{"tablename":"R034CPL"},{"tablename":"R024CAR"},{"tablename":"R018CCU"},{"tablename":"R016ORN"},{"tablename":"R010SIT"},{"tablename":"R034USU"},{"tablename":"R910ENT"}],
+		"join":[
+			{"colum1":"r034fun.estcar", "colum2":"R024car.estcar"},{"colum1":"r034fun.codcar", "colum2":"r024car.codcar"},
+			{"colum1":"r034fun.numemp", "colum2":"r018ccu.numemp"},{"colum1":"r034fun.codccu", "colum2":"r018ccu.codccu"},
+			{"colum1":"r034fun.taborg", "colum2":"r016orn.taborg"},{"colum1":"r034fun.numloc", "colum2":"r016orn.numloc"},
+			{"colum1":"r034fun.numemp", "colum2":"R034usu.numemp"},{"colum1":"r034fun.tipcol", "colum2":"R034usu.tipcol"},{"colum1":"r034fun.numcad", "colum2":"R034usu.numcad"},
+			{"colum1":"r034fun.numemp", "colum2":"R034CPL.numemp"},{"colum1":"r034fun.tipcol", "colum2":"R034CPL.tipcol"},{"colum1":"r034fun.numcad", "colum2":"R034CPL.numcad"},
+			{"colum1":"r034usu.codusu", "colum2":"r910ent.codent"},
+			{"colum1":"r034fun.sitafa", "colum2":"r010sit.codsit"}],
+		"where":[{"columtype":"string","columname":"R910ENT.NomEnt", "columvalue": ":nomEnt"}],
+		"order":[]
+		}		
+	},
+	{"wf_info_solicitante_by_numcad": {
+		"colums":[
+			{"type":"int","columname":"R034FUN.NumEmp"},
+			{"type":"int","columname":"R034FUN.TipCol"},
+			{"type":"int","columname":"R034FUN.NumCad"},
+			{"type":"date","columname":"R034FUN.DatAfa"},
+			{"type":"string","columname":"R034FUN.NomFun"},
+			{"type":"string","columname":"R034FUN.EstCiv"},
+			{"type":"string","columname":"R034FUN.TipSex"},
+			{"type":"string","columname":"R034CPL.NumCnh"},
+			{"type":"string","columname":"R034CPL.CatCnh"},
+			{"type":"string","columname":"R034CPL.DatCnh"},
+			{"type":"string","columname":"R034CPL.VenCnh"},
+			{"type":"string","columname":"R034CPL.OrgCnh"},
+			{"type":"string","columname":"R034CPL.EstCnh"},
+			{"type":"string","columname":"R034CPL.NumCid"},
+			{"type":"string","columname":"R034CPL.EmiCid"},
+			{"type":"string","columname":"R034CPL.EstCid"},
+			{"type":"string","columname":"R034CPL.DexCid"},
+			{"type":"string","columname":"R034CPL.EndCep"},
+			{"type":"string","columname":"R034CPL.CodCid"},
+			{"type":"string","columname":"R034CPL.CodBai"},
+			{"type":"string","columname":"R034CPL.EndRua"},
+			{"type":"string","columname":"R034CPL.EndNum"},
+			{"type":"string","columname":"R034CPL.DddTel"},
+			{"type":"string","columname":"R034CPL.NumTel"},
+			{"type":"string","columname":"R034CPL.NmDdd2"},
+			{"type":"string","columname":"R034CPL.NmTel2"},
+			{"type":"string","columname":"R034CPL.EmaPar"},
+			{"type":"string","columname":"R030FIL.CodFil"},
+			{"type":"string","columname":"R030FIL.NomFil"},
+			{"type":"string","columname":"R024CAR.TitRed"},
+			{"type":"string","columname":"R018CCU.NomCcu"},
+			{"type":"string","columname":"R016ORN.NomLoc"},
+			{"type":"float","columname":"R034FUN.ValSal"},
+			{"type":"string","columname":"R010SIT.DesSit"}],
+		"tables":[{"tablename":"R034FUN"},{"tablename":"R034CPL"},{"tablename":"R030FIL"},{"tablename":"R024CAR"},{"tablename":"R018CCU"},{"tablename":"R016ORN"},{"tablename":"R010SIT"}],
+		"join":[
+			{"colum1":"r034fun.estcar", "colum2":"R024car.estcar"},{"colum1":"r034fun.codcar", "colum2":"r024car.codcar"},
+			{"colum1":"r034fun.numemp", "colum2":"r030fil.numemp"},{"colum1":"r034fun.codfil", "colum2":"r030fil.codfil"},
+			{"colum1":"r034fun.numemp", "colum2":"r018ccu.numemp"},{"colum1":"r034fun.codccu", "colum2":"r018ccu.codccu"},
+			{"colum1":"r034fun.taborg", "colum2":"r016orn.taborg"},{"colum1":"r034fun.numloc", "colum2":"r016orn.numloc"},
+			{"colum1":"r034fun.numemp", "colum2":"R034CPL.numemp"},{"colum1":"r034fun.tipcol", "colum2":"R034CPL.tipcol"},{"colum1":"r034fun.numcad", "colum2":"R034CPL.numcad"},
+			{"colum1":"r034fun.sitafa", "colum2":"r010sit.codsit"}],
+		"where":[
+			{"columtype":"int","columname":"R034FUN.NumEmp", "columvalue": ":numemp"},
+			{"columtype":"int","columname":"R034FUN.TipCol", "columvalue": "1"},
+			{"columtype":"int","columname":"R034FUN.NumCad", "columvalue": ":numcad"}],
+		"order":[]
+		}		
+	},
+	{"wf_info_cidade_bairro": {
+		"colums":[
+			{"type":"int","columname":"R074Cid.CodCid"},
+			{"type":"int","columname":"R074Bai.CodBai"},
+			{"type":"string","columname":"R074Cid.NomCid"},
+			{"type":"string","columname":"R074Bai.NomBai"}],
+		"tables":[{"tablename":"R074Cid"},{"tablename":"R074Bai"}],
+		"join":[
+			{"colum1":"R074Cid.CodCid", "colum2":"R074Bai.CodCid"}],
+		"where":[
+			{"columtype":"int","columname":"R074Cid.CodCid", "columvalue": ":codCid"},
+			{"columtype":"int","columname":"R074Bai.CodBai", "columvalue": ":codBai"}
+		],
+		"order":[]
+		}		
+	},
+	{"dependentes_colaborador": {
+		"colums":[
+			{"type":"int","columname":"CodDep"},
+			{"type":"int","columname":"LimIrf"},
+			{"type":"int","columname":"LimSaf"},
+			{"type":"string","columname":"NomDep"},
+			{"type":"date","columname":"DatNas"},
+			{"type":"int","columname":"GraPar", "enumname":"LGraPar"},
+			{"type":"string","columname":"EstCiv"},
+			{"type":"string","columname":"TipSex", "enumname":"LTipSex"},
+			{"type":"int","columname":"NumCpf"},
+			{"type":"string","columname":"NumCid"},
+			{"type":"string","columname":"NasViv"},
+			{"type":"string","columname":"NomMae"}],
+		"tables":[{"tablename":"R036DEP"}],
+		"join":[],
+		"where":[{"columtype":"int","columname":"NumEmp", "columvalue": ":numEmp"},
+			{"columtype":"int","columname":"TipCol", "columvalue": ":tipCol"},
+			{"columtype":"int","columname":"NumCad", "columvalue": ":numCad"}],
+		"order":[]
+		}		
+	},
+	{"wf_info_curso_formacao_colab": {
+		"colums":[
+			{"type":"int","columname":"R124HCF.CodCuf"},
+			{"type":"int","columname":"R124HCF.SeqHcf"},
+			{"type":"date","columname":"R124HCF.PerIni"},
+			{"type":"date","columname":"R124HCF.PerFim"},
+			{"type":"string","columname":"R124HCF.SitCuf"},
+			{"type":"string","columname":"R127Cuf.NomRed"},
+			{"type":"string","columname":"R032Oem.NomOem"}],
+		"tables":[{"tablename":"R124HCF"},{"tablename":"R032Oem"},{"tablename":"R127Cuf"}],
+		"join":[
+			{"colum1":"R124HCF.CodCuf", "colum2":"R127Cuf.CodCuf"},
+			{"colum1":"R124HCF.CodOem", "colum2":"R032Oem.CodOem"}],
+		"where":[
+			{"columtype":"int","columname":"R124HCF.NumEmp", "columvalue": ":numEmp"},
+			{"columtype":"int","columname":"R124HCF.TipCol", "columvalue": ":tipCol"},
+			{"columtype":"int","columname":"R124HCF.NumCad", "columvalue": ":numCad"}
+		],
+		"order":[]
+		}
+	},
+	{"wf_info_cidade_bairro": {
+		"colums":[
+			{"type":"int","columname":"R074Cid.CodCid"},
+			{"type":"int","columname":"R074Bai.CodBai"},
+			{"type":"string","columname":"R074Cid.NomCid"},
+			{"type":"string","columname":"R074Bai.NomBai"}],
+		"tables":[{"tablename":"R074Cid"},{"tablename":"R074Bai"}],
+		"join":[
+			{"colum1":"R074Cid.CodCid", "colum2":"R074Bai.CodCid"}],
+		"where":[
+			{"columtype":"int","columname":"R074Cid.CodCid", "columvalue": ":codCid"},
+			{"columtype":"int","columname":"R074Bai.CodBai", "columvalue": ":codBai"}
+		],
+		"order":[]
+		}		
+	},
+    {"filial": {
+        "colums":[
+            {"type":"int","columname":"codfil"},{"type":"string","columname":"nomfil"}],
+        "tables":[{"tablename":"R030fil"}],
+        "join":[],
+        "where":[{"columtype":"int","columname":"numemp", "columvalue": "470"}],
+        "order":[]
+        }       
+    },
+    {"posto": {
+        "colums":[
+            {"type":"string","columname":"postra"},{"type":"string","columname":"desred"}],
+        "tables":[{"tablename":"r017pos"}],
+        "join":[],
+        "where":[{"columtype":"int","columname":"estpos", "columvalue": "2"}],
+        "order":[]
+        }       
+    },
+    {"cargo": {
+        "colums":[
+            {"type":"string","columname":"codcar"},{"type":"string","columname":"titred"}],
+        "tables":[{"tablename":"r024car"}],
+        "join":[],
+        "where":[{"columtype":"int","columname":"estcar", "columvalue": "2"}],
+        "order":[]
+        }       
+    },
+    {"local": {
+        "colums":[
+            {"type":"string","columname":"nomloc"}],
+        "tables":[{"tablename":"r016orn"}],
+        "join":[],
+        "where":[{"columtype":"int","columname":"taborg", "columvalue": "4"}],
+        "order":[]
+        }       
+    },
+    {"horario": {
+        "colums":[
+            {"type":"string","columname":"deshor"}],
+        "tables":[{"tablename":"r004hor"}],
+        "join":[],
+        "where":[],
+        "order":[]
+        }       
+    }
+]
