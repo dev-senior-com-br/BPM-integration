@@ -1,0 +1,2 @@
+# Table Import CSV
+Para publicar uma nova versão, basta criar uma pasta e adicionar o `.jar` correspondente da versão nela. O `table-import-csv.jar` mantido na pasta root é por questões de compatibilidade com outras aplicações integradores que realizam o download do componente em processos de implantação.
